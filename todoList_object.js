@@ -1,3 +1,5 @@
+// Code goes here
+
 var todoList = {
   todos: [],
   displayTodos: function() {
@@ -33,5 +35,49 @@ var todoList = {
     var todo = this.todos[position];
     todo.completed = !todo.completed;
     this.displayTodos();
+  },
+  toggleAll: function() {
+    debugger;
+    var totalTodos = this.todos.length;
+    var completedTodos = 0;
+    
+    // Get number of completed todos
+    for (var i = 0; i < totalTodos; i++) {
+      if (this.todos[i].completed === true) {
+        completedTodos++;
+      }
+    }
+    
+    // Case 1: If everything's true, make everything false.
+    if (completedTodos === totalTodos) {
+      for (var i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = false;
+      }
+    // Case 2: Otherwise make everything true  
+    } else {
+      for (var i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = true;
+      }
+    }
+    
+    this.displayTodos();
   }
 };
+
+
+// 1.We want to get access to the display todos button
+var displayTodosButton = document.getElementById('displayTodosButton');
+var toggleAllButton = document.getElementById('toggleAllButton');
+
+
+// 2.We want to run DisplayTodos method when someone clicks the display Todos button
+displayTodosButton.addEventListener('click', function() {
+  todoList.displayTodos();
+});
+
+toggleAllButton.addEventListener('click', function() {
+  todoList.toggleAll();
+})
+
+
+

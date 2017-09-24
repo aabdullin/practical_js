@@ -10,7 +10,7 @@ var todoList = {
         if (this.todos[i].completed === true) {
           console.log('(x)', this.todos[i].todoText);
         } else {
-          console.log('()', this.todos[i].todoText);
+          console.log('( )', this.todos[i].todoText);
         }
       }
     }
@@ -57,7 +57,6 @@ var todoList = {
         this.todos[i].completed = true;
       }
     }
-    
     this.displayTodos();
   }
 };
